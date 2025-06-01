@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "14bcd31b01ed260a80ed0dab8944d7cd906cdb5af3abc5456128af73dfffdc74"
+            "sha256": "643ffbd67d4440afc7c5cf91e4afcb5d297f4397a2da030097b443ef925e78a5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,6 +31,15 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==4.9.0"
+        },
+        "apscheduler": {
+            "hashes": [
+                "sha256:4c622d250b0955a65d5d0eb91c33e6d43fd879834bf541e0a18661ae60460133",
+                "sha256:fc134ca32e50f5eadcc4938e3a4545ab19131435e851abb40b34d63d5141c6da"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==3.11.0"
         },
         "cachetools": {
             "hashes": [
@@ -334,11 +343,13 @@
             "version": "==1.1.0"
         },
         "python-telegram-bot": {
+            "extras": [
+                "job-queue"
+            ],
             "hashes": [
                 "sha256:71afd091fde9037ac44728c2768eb958682140dcc350900a191da0e9cef319d3",
                 "sha256:b6c7fc1f3635cef6aff0c431827407cafde183e7e1992060edeacc2bf08d23d8"
             ],
-            "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==22.1"
         },
@@ -381,6 +392,22 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==0.4.0"
+        },
+        "tzdata": {
+            "hashes": [
+                "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8",
+                "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9"
+            ],
+            "markers": "python_version >= '2'",
+            "version": "==2025.2"
+        },
+        "tzlocal": {
+            "hashes": [
+                "sha256:cceffc7edecefea1f595541dbd6e990cb1ea3d19bf01b2809f362a03dd7921fd",
+                "sha256:eb1a66c3ef5847adf7a834f1be0800581b683b5608e74f86ecbcef8ab91bb85d"
+            ],
+            "markers": "python_version >= '3.9'",
+            "version": "==5.3.1"
         },
         "urllib3": {
             "hashes": [

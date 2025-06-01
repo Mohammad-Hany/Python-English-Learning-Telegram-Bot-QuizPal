@@ -5,8 +5,9 @@ name = "pypi"
 
 [packages]
 python-dotenv = "*"
-python-telegram-bot = "*"
 google-genai = "*"
+apscheduler = "*"
+python-telegram-bot = {extras = ["job-queue"], version = "*"}
 
 [dev-packages]
 

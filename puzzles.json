@@ -1,0 +1,174 @@
+{
+    "quiz": [
+        {
+            "question_type": "Matching",
+            "question": "Match 'on the fence' to its meaning.",
+            "options": [
+                "Very confident",
+                "Undecided",
+                "Extremely tired",
+                "Fully committed"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Contextual usage",
+            "question": "You\u2019re exhausted after work. What do you say?",
+            "options": [
+                "I\u2019m on fire!",
+                "I\u2019m beat!",
+                "I\u2019m in the loop!",
+                "I\u2019m over the top!"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Multiple-choice",
+            "question": "What\u2019s 'burn the midnight oil'?",
+            "options": [
+                "Sleep early",
+                "Cook dinner",
+                "Work late",
+                "Study lightly"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Fill-in-the-blank",
+            "question": "Let\u2019s ___ and finish this!",
+            "options": [
+                "throw in the towel",
+                "miss the boat",
+                "get the ball rolling",
+                "jump the gun"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Matching",
+            "question": "Match 'spill the beans' to its meaning.",
+            "options": [
+                "Make a mess",
+                "Work quickly",
+                "Tell a secret",
+                "Avoid trouble"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Contextual usage",
+            "question": "You\u2019re unsure about a decision. What do you say?",
+            "options": [
+                "I\u2019m pulling your leg!",
+                "I\u2019m sitting on the fence!",
+                "I\u2019m barking up the wrong tree!",
+                "I\u2019m hitting the jackpot!"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Multiple-choice",
+            "question": "What does 'kick the bucket' mean?",
+            "options": [
+                "Start a project",
+                "Win a prize",
+                "Die",
+                "Lose a game"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Fill-in-the-blank",
+            "question": "Don\u2019t ___! Keep trying!",
+            "options": [
+                "cut corners",
+                "call it a day",
+                "throw in the towel",
+                "take the plunge"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Matching",
+            "question": "Match 'out of the blue' to its meaning.",
+            "options": [
+                "Very slowly",
+                "Unexpectedly",
+                "With effort",
+                "On purpose"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Contextual usage",
+            "question": "You made a mistake. What do you say?",
+            "options": [
+                "I hit the ground running!",
+                "I let the cat out of the bag!",
+                "I barked up the wrong tree!",
+                "I burned the midnight oil!"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Multiple-choice",
+            "question": "What\u2019s 'cut corners'?",
+            "options": [
+                "Work efficiently",
+                "Do something poorly",
+                "Plan carefully",
+                "Study hard"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Fill-in-the-blank",
+            "question": "She\u2019s always ___ new challenges.",
+            "options": [
+                "down with",
+                "off to",
+                "up for",
+                "over at"
+            ],
+            "answer_index": 2
+        },
+        {
+            "question_type": "Matching",
+            "question": "Match 'call it a day' to its meaning.",
+            "options": [
+                "Start a task",
+                "Stop working",
+                "Plan a meeting",
+                "Make a decision"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Contextual usage",
+            "question": "You\u2019re joking with a friend. What do you say?",
+            "options": [
+                "I\u2019m hitting the nail on the head!",
+                "I\u2019m pulling your leg!",
+                "I\u2019m burning the midnight oil!",
+                "I\u2019m cutting corners!"
+            ],
+            "answer_index": 1
+        },
+        {
+            "question_type": "Multiple-choice",
+            "question": "What does 'hit the jackpot' mean?",
+            "options": [
+                "Fail badly",
+                "Work hard",
+                "Win big",
+                "Give up"
+            ],
+            "answer_index": 2
+        }
+    ],
+    "notes": {
+        "skipped_phrases": [],
+        "corrections": [],
+        "message": "Nice try! Keep practicing these cool phrases! \ud83d\ude0e\ud83d\ude80"
+    }
+}
