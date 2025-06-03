@@ -186,7 +186,7 @@ async def quiz_maker_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 item['question'],
                 item['options'],
                 item['answer_index'],
-                explanation=item['explanation'] if item['explanation'] else "Great job! Keep practicing to master this topic! 🌟" # Default explanation
+                explanation=item['explanation'] if item.get('explanation') else "Great job! Keep practicing to master this topic! 🌟" # Default explanation
             )
         except Exception as e:
             logger.error(f"Error sending poll item for user {user.id}: {e}", exc_info=True)
@@ -198,7 +198,7 @@ async def quiz_maker_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
     if ai_notes:
         note_text_parts = []
         if 'message' in ai_notes and ai_notes['message']:
-             note_text_parts.append(ai_notes['message']) # AI's general message first
+             note_text_parts.append(ai_notes['message']) 
         if 'skipped_phrases' in ai_notes and ai_notes['skipped_phrases']:
             note_text_parts.append(f"⚠️ I skipped some parts that weren't clear: {', '.join(ai_notes['skipped_phrases'])}.")
         if 'corrections' in ai_notes and ai_notes['corrections']:
@@ -232,14 +232,15 @@ async def daily_quiz_job(context: ContextTypes.DEFAULT_TYPE) -> None:
         user_id = user['user_id']
         try:
             await context.bot.send_message(chat_id=user_id, text="It's time for your daily English puzzle! 🧩🏫")
-            await send_poll_to_user_and_channel(
-                context,
-                user_id,
-                puzzle_data['question'],
-                puzzle_data['options'],
-                puzzle_data['answer_index'],
-                explanation="This was your daily challenge! Keep it up! 💪"
-            )
+            for data in puzzle_data:
+                await send_poll_to_user_and_channel(
+                    context,
+                    user_id,
+                    data['question'],
+                    data['options'],
+                    data['answer_index'],
+                    explanation=data['explanation'] if data.get('explanation') else "This was your daily challenge! Keep it up! 💪"
+                )
             logger.info(f"Sent daily puzzle to user {user_id}")
         except Exception as e:
             logger.error(f"Failed to send daily puzzle to user {user_id}: {e}", exc_info=True)
@@ -266,10 +267,6 @@ def main() -> None:
         logger.critical("TELEGRAM_TOKEN is not set. Bot cannot start.")
         return
 
-    # For storing user data across sessions (e.g., conversation states)
-    # persistence = PicklePersistence(filepath="bot_persistence.pickle", store_data=PersistenceInput(bot_data=True, chat_data=True, user_data=True))
-
-
     try:
         application = Application.builder().token(TELEGRAM_TOKEN).build() # removed persistence for now .persistence(persistence)
 
@@ -280,12 +277,11 @@ def main() -> None:
         application.add_handler(CallbackQueryHandler(settings_choice_callback, pattern='settings_*')) # Pattern for level callbacks
         application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, quiz_maker_handler))
 
-        # Error handler
         application.add_error_handler(error_handler_telegram)
 
         # Schedule daily message
         job_queue = application.job_queue
-        if job_queue: # Ensure job_queue is available
+        if job_queue: 
             job_queue.run_daily(
                 daily_quiz_job,
                 time=dt_time(hour=7, minute=30, second=00), # Specify timezone if needed: tzinfo=pytz.timezone('Your/Timezone')

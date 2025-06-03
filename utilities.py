@@ -232,7 +232,9 @@ def read_puzzles_from_file(file_path='puzzles.json') -> Optional[Dict[str, Any]]
                 logger.warning(f"No 'quiz' array found in {file_path} or it's empty.")
                 return None
 
-            puzzle = quiz_data['quiz'].pop(0) # Get and remove the first puzzle
+            # Get last 3 quizzes and delete them
+            puzzle = quiz_data['quiz'][0:3] 
+            del quiz_data['quiz'][0:3]
 
             file.seek(0) # Go to the beginning of the file
             json.dump(quiz_data, file, indent=4) # Write the updated data back
