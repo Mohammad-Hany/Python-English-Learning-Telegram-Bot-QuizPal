@@ -186,7 +186,7 @@ async def quiz_maker_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 item['question'],
                 item['options'],
                 item['answer_index'],
-                explanation="Great job! Keep practicing to master this topic! 🌟" # Default explanation
+                explanation=item['explanation'] if item['explanation'] else "Great job! Keep practicing to master this topic! 🌟" # Default explanation
             )
         except Exception as e:
             logger.error(f"Error sending poll item for user {user.id}: {e}", exc_info=True)

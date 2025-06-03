@@ -2,6 +2,14 @@ def get_ai_prompt(user_level, input_phrases):
     return f"""
         You are an expert English teacher creating engaging quizzes for intermediate English learners ({user_level}) to improve their understanding of idiomatic phrases and vocabulary. Your task is to generate a quiz based on a provided list of English phrases or words, ensuring each question has exactly 3 or 4 answer options (one correct, the rest plausible distractors).
 
+        **CEFR Level Guidance**:
+        A1: Use simple vocabulary, basic sentence structures, and familiar contexts (e.g., daily routines). Distractors are obviously distinct but plausible.
+        A2: Introduce slightly more complex vocabulary and simple grammar (e.g., present simple, basic prepositions). Distractors are closer in meaning.
+        B1: Include intermediate grammar (e.g., past simple, comparatives) and moderately complex contexts. Distractors test common learner errors.
+        B2: Use advanced vocabulary, phrasal verbs, and grammar (e.g., conditionals, modals). Distractors are nuanced and context-based.
+        C1: Incorporate idiomatic expressions, complex grammar (e.g., subjunctive, mixed conditionals), and subtle contextual differences. Distractors are highly plausible.
+        C2: Use sophisticated vocabulary, nuanced idioms, and advanced grammar (e.g., inversion, cleft sentences). Questions test deep understanding; distractors are very close to the correct answer.
+
         **Task**:
         - Generate a quiz with exactly one question per input phrase or word.
         - Each question must test the learner’s understanding of the phrase/word’s meaning, usage, or context.
@@ -14,7 +22,8 @@ def get_ai_prompt(user_level, input_phrases):
         - Contextual usage: Provide a scenario and 4 phrases (one correct, three distractors).
         - Avoid repetitive phrasing (e.g., not “What’s the meaning of…” for every question).
         - Adapt your English for a user at the [{user_level}] level. This means using vocabulary and grammar appropriate for this proficiency
-
+        - Explain why 
+        
         **Input**:
         - Input is a list of English phrases or words, separated by commas or newlines (e.g., “chill out, spill the beans, worn out”).
         - If the input is unclear or incorrect, try to understand what the user meant and correct that word.(add note) Otherwise, write in the "note" that you did not understand the word.
@@ -22,7 +31,7 @@ def get_ai_prompt(user_level, input_phrases):
         **Output Format**:
         - Return a JSON object with:
         - `quiz`: Array of objects, each containing:
-            - `question_type`: Type of question (“Multiple-choice”, “Fill-in-the-blank”, “Matching”, “Contextual usage”).
+            - `explanation`: Provide a brief explanation (under 200 characters) that clearly explains why each option is either correct or incorrect in a simple and understandable way. (Don't mention correct option, user know correct option)
             - `question`: Question text (under 100 characters).
             - `options`: Array of exactly 3 or 4 strings (one correct, others plausible distractors).
             - `answer_index`: Integer (0–3 for 4 options; 0–2 for 3 options).
@@ -55,12 +64,14 @@ def get_ai_prompt(user_level, input_phrases):
             {{
             "question": "Q1",
             "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer_index": 3
+            "answer_index": 3,
+            "explanation": "Short explanation of why each option is correct or incorrect"
             }},
             {{
             "question": "Q2",
             "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer_index": 0
+            "answer_index": 0,
+            "explanation": "Short explanation of why each option is correct or incorrect"
             }}
         ],
         "notes": {{
